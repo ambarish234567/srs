@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seven Rings Stories | Luxury Wedding Photography & Cinematography</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-cream: #FDFBF7;
+            --card-bg: #FFFFFF;
+            --dark-gold: #9B7B47;
+            --gold: #C5A059;
+            --soft-gold: #DFD3BE;
+            --text-dark: #1E1B18;
+            --text-muted: #6B655E;
+            --accent-black: #121212;
+            --border-color: #E8E2D7;
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* TYPOGRAPHY */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 4px;
+        }
+
+        .script-font {
+            font-family: 'Great Vibes', cursive;
+            color: var(--dark-gold);
+            font-weight: normal;
+        }
+
+        /* HEADER & HERO */
+        header {
+            background: linear-gradient(rgba(18, 18, 18, 0.65), rgba(18, 18, 18, 0.65)),
+                url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FFF;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+
+        .hero-badge {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            letter-spacing: 5px;
+            margin-bottom: 0.5rem;
+            color: #FFFFFF;
+        }
+
+        .hero-tagline {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #F3EBDD;
+        }
+
+        .hero-subtext {
+            font-size: 1.05rem;
+            max-width: 650px;
+            letter-spacing: 1px;
+            font-weight: 300;
+            color: #E2DFD9;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: #FFF;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(155, 123, 71, 0.35);
+            transition: var(--transition);
+            border: 1px solid var(--soft-gold);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(155, 123, 71, 0.45);
+            background: linear-gradient(135deg, var(--dark-gold), var(--gold));
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header .subheading {
+            font-size: 2.4rem;
+            display: block;
+            margin-top: -5px;
+        }
+
+        .section-header .heading {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+        }
+
+        .gold-divider {
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1.2rem auto;
+            position: relative;
+        }
+
+        .gold-divider::after {
+            content: '✧';
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-cream);
+            padding: 0 8px;
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        /* PRICING GRID */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+            align-items: stretch;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(155, 123, 71, 0.15);
+            border-color: var(--gold);
+        }
+
+        .price-card.featured {
+            background: #FFFFFF;
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 35px rgba(155, 123, 71, 0.12);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-black);
+            color: var(--soft-gold);
+            padding: 0.3rem 1.4rem;
+            font-size: 0.7rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            border: 1px solid var(--gold);
+            text-transform: uppercase;
+        }
+
+        .card-header {
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .collection-no {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--dark-gold);
+            margin-bottom: 0.2rem;
+        }
+
+        .package-name {
+            font-size: 1.4rem;
+            letter-spacing: 1.5px;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .package-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .card-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            margin: 1.5rem 0 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-section-title i {
+            color: var(--gold);
+        }
+
+        .details-list {
+            list-style: none;
+            margin-bottom: 1.2rem;
+        }
+
+        .details-list li {
+            font-size: 0.88rem;
+            color: #3D3935;
+            padding: 0.45rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            border-bottom: 1px dashed rgba(232, 226, 215, 0.7);
+        }
+
+        .details-list li:last-child {
+            border-bottom: none;
+        }
+
+        .details-list li i {
+            color: var(--dark-gold);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+        }
+
+        .btn-select {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.85rem 0;
+            border: 1px solid var(--dark-gold);
+            background: transparent;
+            color: var(--dark-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .btn-select:hover,
+        .price-card.featured .btn-select {
+            background: var(--dark-gold);
+            color: #FFFFFF;
+        }
+
+        .price-card.featured .btn-select:hover {
+            background: #7E6336;
+            border-color: #7E6336;
+        }
+
+        /* TERMS & POLICY SECTION */
+        .policy-wrapper {
+            margin-top: 6rem;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3.5rem 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+        }
+
+        .timeline-list {
+            list-style: none;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-list::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: var(--soft-gold);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 2px solid #FFF;
+            box-shadow: 0 0 0 2px var(--gold);
+        }
+
+        .timeline-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        .timeline-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .terms-box ul {
+            list-style: none;
+        }
+
+        .terms-box li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.1rem;
+            position: relative;
+            padding-left: 1.4rem;
+        }
+
+        .terms-box li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.8rem;
+            top: 1px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--accent-black);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 4.5rem 1.5rem;
+            margin-top: 6rem;
+        }
+
+        .footer-logo {
+            font-size: 2.4rem;
+            letter-spacing: 4px;
+            color: var(--soft-gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-sub {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            color: #A5A096;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-quote {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #DDD;
+        }
+
+        .contact-section {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s ease;
+        }
+
+        .contact-links a i {
+            color: #d4af37;
+            font-size: 20px;
+        }
+
+        .contact-links a:hover {
+            color: #d4af37;
+        }
+
+        .contact-links span {
+            font-size: 15px;
+        }
+
+        .copyright {
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid #d4af37;
+            color: #aaa;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 850px) {
+            .policy-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <span class="hero-badge">Luxury Cinematography & Photography</span>
+        <h1 class="brand-title hero-title">SRS</h1>
+        <h2 class="brand-title"
+            style="font-size: 1.2rem; letter-spacing: 5px; color: var(--soft-gold); margin-bottom: 1rem;">SEVEN RINGS
+            STORIES</h2>
+        <p class="script-font hero-tagline">Capturing emotions. Creating cinematic stories.</p>
+        <p class="hero-subtext">Every glance, every tear, and every unscripted laugh—immortalized with bespoke cinematic
+            brilliance for your special days.</p>
+        <a href="#collections" class="btn-gold">Explore Collections</a>
+    </header>
+
+    <main class="container" id="collections">
+
+        <div class="section-header">
+            <h2 class="heading">Wedding Collections</h2>
+            <span class="script-font subheading">Photography & Cinematography Pricing</span>
+            <div class="gold-divider"></div>
+        </div>
+
+        <div class="pricing-grid">
+
+            <article class="price-card">
+                <div class="card-header">
+                    <p class="collection-no">Collection 01</p>
+                    <h3 class="package-name">Essential</h3>
+                    <div class="package-price">₹60,000</div>
+                    <p class="package-desc">Perfect for couples looking for beautiful wedding memories within a
+                        practical budget.</p>
+                </div>
+
+                <h4 class="card-section-title"><i class="fa-solid fa-users-viewfinder"></i> Coverage Team</h4>
+                <ul class="details-list">
+                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 1 (Ring Ceremony):</strong> 1 Candid &
+                        1 Traditional Photographer</li>
+                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 2 (Mehndi & Haldi):</strong> 1 Candid &
+                        1 Traditional Photographer</li>
+                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 3 (Wedding):</strong> 1 Candid, 1
+                        Traditional Photographer & 1 Traditional Videographer</li>
+                </ul>
+
+                <h4 class="card-section-title"><i class="fa-solid fa-box-open"></i> Deliverables</h4>
+                <ul class="details-list">
+                    <li><i class="fa-regular fa-image"></i> 1 Canvera Photobook (Size: 12x30 or 12x36) — 20 Sheets</li>
+                    <li><i class="fa-solid fa-wand-magic-sparkles"></i> Master Edited Photographs</li>
+                    <li><i class="fa-solid fa-video"></i> 1 Traditional Full-Length Wedding Video</li>
+                    <li><i class="fa-solid fa-film"></i> 1 Wedding Teaser</li>
+                    <li><i class="fa-solid fa-usb-drive"></i> 1 USB Pen Drive</li>
+                </ul>
+
+                <div class="card-footer">
+                    <a href="#contact" class="btn-select">Reserve Package</a>
+                </div>
+            </article>
+
+            <article class="price-card featured">
+                <span class="popular-tag">Most Cherished</span>
+                <div class="card-header">
+                    <p class="collection-no">Collection 02</p>
+                    <h3 class="package-name">Signature</h3>
+                    <div class="package-price">₹85,000</div>
+                    <p class="package-desc">A balanced combination of candid photography and cinematic storytelling.</p>
+                </div>
+
+                <h4 class="card-section-title"><i class="fa-solid fa-users-viewfinder"></i> Coverage Team</h4>
+                <ul class="details-list">
+                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 1 (Ring Ceremony):</strong> 1 Candid, 1
+                        Traditional Photographer & 1 Cinematographer</li>
+                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 2 (Mehndi & Haldi):</strong> 1 Candid,
+                        1 Traditional Photographer & 1 Cinematographer</li>
+                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 3 (Wedding):</strong> 1 Candid, 1
+                        Traditional Photographer, 1 Cinematographer & 1 Traditional Videographer</li>
+                </ul>
+
+                <h4 class="card-section-title"><i class="fa-solid fa-box-open"></i> Deliverables</h4>
+                <ul class="details-list">
+                    <li><i class="fa-regular fa-image"></i> 1 Canvera Photobook (Size: 12x30 or 12x36) — 25–30 Sheets</li>
+                    <li><i class="fa-solid fa-wand-magic-sparkles"></i> Master Edited Photographs</li>
+                    <li><i class="fa-solid fa-clapperboard"></i> 1 Cinematic Full-Length Wedding Film</li>
+                    <li><i class="fa-solid fa-film"></i> 1 Wedding Teaser</li>
+                    <li><i class="fa-solid fa-envelope-open-text"></i> 1 Invitation Teaser</li>
+                    <li><i class="fa-solid fa-usb-drive"></i> 1 USB Pen Drive</li>
+                </ul>
+
+                <div class="card-footer">
+                    <a href="#contact" class="btn-select">Reserve Package</a>
+                </div>
+            </article>
+
+            <article class="price-card">
+                <div class="card-header">
+                    <p class="collection-no">Collection 03</p>
+                    <h3 class="package-name">Luxury Cinematic</h3>
+                    <div class="package-price">₹1,10,000</div>
+                    <p class="package-desc">Our complete wedding storytelling experience, documented like a feature
+                        film.</p>
+                </div>
+
+                <h4 class="card-section-title"><i class="fa-solid fa-users-viewfinder"></i> Coverage Team</h4>
+                <ul class="details-list">
+                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 1 (Ring Ceremony):</strong> 1 Candid, 1
+                        Traditional Photographer & 1 Cinematographer</li>
+                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 2 (Mehndi & Haldi):</strong> 1 Candid,
+                        1 Traditional Photographer & 1 Cinematographer</li>
+                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 3 (Wedding):</strong> 1 Candid, 1
+                        Traditional Photographer, 1 Cinematographer & 1 Traditional Videographer</li>
+                </ul>
+
+                <h4 class="card-section-title"><i class="fa-solid fa-box-open"></i> Deliverables</h4>
+                <ul class="details-list">
+                    <li><i class="fa-regular fa-image"></i> 1 Premium Canvera Photobook (Size: 12x30 or 12x36) — 35 Sheets</li>
+                    <li><i class="fa-solid fa-wand-magic-sparkles"></i> Master Edited Photographs</li>
+                    <li><i class="fa-solid fa-clapperboard"></i> 1 Premium Cinematic Full-Length Film</li>
+                    <li><i class="fa-solid fa-film"></i> 1 Wedding Teaser & 1 Invitation Teaser</li>
+                    <li><i class="fa-solid fa-heart"></i> 1 Couple Cinematic Highlight Film</li>
+                    <li><i class="fa-solid fa-palette"></i> Premium Color Grading & Cinematic Editing</li>
+                    <li><i class="fa-solid fa-box"></i> 1 Premium Gift Box Pen Drive</li>
+                </ul>
+
+                <div class="card-footer">
+                    <a href="#contact" class="btn-select">Reserve Package</a>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="policy-wrapper" id="contact">
+            <div class="policy-grid">
+
+                <div>
+                    <h3
+                        style="font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Payment Terms</h3>
+                    <p class="script-font" style="font-size: 1.8rem; margin-bottom: 2rem;">Seamless & Transparent</p>
+
+                    <ul class="timeline-list">
+                        <li class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <h4 class="timeline-title">Booking Amount — 30%</h4>
+                            <p class="timeline-desc">At the time of reservation to secure dates.</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <h4 class="timeline-title">Second Payment — 40%</h4>
+                            <p class="timeline-desc">Payable prior to the wedding day ceremonies.</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <h4 class="timeline-title">Final Payment — 30%</h4>
+                            <p class="timeline-desc">Upon completion of event coverage.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="terms-box">
+                    <h3
+                        style="font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Important Notes</h3>
+                    <p class="script-font" style="font-size: 1.8rem; margin-bottom: 2rem;">Good Things to Know</p>
+
+                    <ul>
+                        <li>Additional coverage or extra crew services will be charged separately upon request.</li>
+                        <li>Travel, accommodation, and other logistical outstation expenses are not included in the
+                            packages.</li>
+                        <li>Photobook layout design will be shared digitally for your approval before printing.</li>
+                        <li>Final delivery schedules and timelines will be mutually discussed post-event.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <h2 class="brand-title footer-logo">SRS</h2>
+        <div class="footer-sub">Seven Rings Stories</div>
+        <p class="script-font footer-quote">Capturing emotions. Creating cinematic stories.</p>
+        <div class="gold-divider"></div>
+
+        <div class="contact-section">
+            <div class="contact-links">
+                <a href="https://instagram.com/studio_srs1" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                    @studio_srs1
+                </a>
+                <a href="tel:+917751943369">
+                    <i class="fa-solid fa-phone"></i>
+                    Contact Team<br>
+                    <span>+91 7751943369</span>
+                </a>
+                <a href="mailto:sudiptasahu0200@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                    sudiptasahu0200@gmail.com
+                </a>
+            </div>
+            <div class="copyright">
+                © 2025 Seven Rings Stories. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
