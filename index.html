@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seven Rings Stories | Luxury Wedding Photography & Cinematography</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
@@ -21,10 +23,13 @@
             --dark-gold: #9B7B47;
             --gold: #C5A059;
             --soft-gold: #DFD3BE;
+            --light-gold: #F7F3EB;
             --text-dark: #1E1B18;
             --text-muted: #6B655E;
             --accent-black: #121212;
+            --navbar-bg: rgba(18, 18, 18, 0.92);
             --border-color: #E8E2D7;
+            --shadow-gold: rgba(197, 160, 89, 0.25);
             --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -32,6 +37,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -43,10 +49,7 @@
         }
 
         /* TYPOGRAPHY */
-        h1,
-        h2,
-        h3,
-        h4 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -63,18 +66,135 @@
             font-weight: normal;
         }
 
-        /* HEADER & HERO */
-        header {
-            background: linear-gradient(rgba(18, 18, 18, 0.65), rgba(18, 18, 18, 0.65)),
+        /* HEADER & NAVIGATION */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--navbar-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+            transition: var(--transition);
+            padding: 0.8rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: #FFF;
+        }
+
+        .nav-logo-badge {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: #121212;
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            letter-spacing: 3px;
+            color: var(--soft-gold);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #DDD;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.4rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta-btn {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: #FFF !important;
+            padding: 0.6rem 1.4rem !important;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid var(--soft-gold);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .nav-cta-btn::after {
+            display: none !important;
+        }
+
+        .nav-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.5);
+            background: linear-gradient(135deg, var(--dark-gold), var(--gold));
+        }
+
+        .mobile-toggle {
+            display: none;
+            color: var(--soft-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(18, 18, 18, 0.72), rgba(18, 18, 18, 0.75)),
                 url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
-            min-height: 85vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: #FFF;
-            padding: 2rem 1rem;
+            padding: 8rem 1.5rem 4rem 1.5rem;
             position: relative;
         }
 
@@ -84,59 +204,100 @@
             letter-spacing: 6px;
             text-transform: uppercase;
             color: var(--soft-gold);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             display: inline-block;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            background: rgba(18, 18, 18, 0.4);
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            letter-spacing: 5px;
-            margin-bottom: 0.5rem;
+            font-size: 4rem;
+            letter-spacing: 6px;
+            margin-bottom: 0.3rem;
             color: #FFFFFF;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-subbrand {
+            font-size: 1.3rem;
+            letter-spacing: 6px;
+            color: var(--soft-gold);
+            margin-bottom: 1.5rem;
         }
 
         .hero-tagline {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.4rem;
+            margin-bottom: 1.2rem;
             color: #F3EBDD;
         }
 
         .hero-subtext {
             font-size: 1.05rem;
-            max-width: 650px;
+            max-width: 680px;
             letter-spacing: 1px;
             font-weight: 300;
             color: #E2DFD9;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
-        .btn-gold {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
-            color: #FFF;
-            padding: 1rem 2.5rem;
+        /* PAGE FLOW CTA BUTTONS */
+        .flow-actions {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-flow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2rem;
             text-decoration: none;
             font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            letter-spacing: 3px;
+            font-size: 0.82rem;
+            letter-spacing: 2px;
             font-weight: 600;
             border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(155, 123, 71, 0.35);
             transition: var(--transition);
-            border: 1px solid var(--soft-gold);
+            text-transform: uppercase;
         }
 
-        .btn-gold:hover {
+        .btn-flow-primary {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: #FFF;
+            border: 1px solid var(--soft-gold);
+            box-shadow: 0 8px 25px rgba(155, 123, 71, 0.4);
+        }
+
+        .btn-flow-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(155, 123, 71, 0.45);
+            box-shadow: 0 12px 30px rgba(155, 123, 71, 0.55);
             background: linear-gradient(135deg, var(--dark-gold), var(--gold));
         }
 
-        /* MAIN CONTAINER */
+        .btn-flow-outline {
+            background: rgba(18, 18, 18, 0.6);
+            color: var(--soft-gold);
+            border: 1px solid var(--gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-flow-outline:hover {
+            transform: translateY(-3px);
+            background: var(--gold);
+            color: #121212;
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+        }
+
+        /* MAIN SECTION STYLING */
         .container {
-            max-width: 1200px;
+            max-width: 1250px;
             margin: 0 auto;
-            padding: 5rem 1.5rem;
+            padding: 6rem 1.5rem;
         }
 
         .section-header {
@@ -144,21 +305,21 @@
             margin-bottom: 4rem;
         }
 
-        .section-header .subheading {
-            font-size: 2.4rem;
-            display: block;
-            margin-top: -5px;
-        }
-
         .section-header .heading {
-            font-size: 2rem;
-            letter-spacing: 2px;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
             color: var(--text-dark);
             text-transform: uppercase;
         }
 
+        .section-header .subheading {
+            font-size: 2.2rem;
+            display: block;
+            margin-top: -5px;
+        }
+
         .gold-divider {
-            width: 70px;
+            width: 80px;
             height: 2px;
             background: var(--gold);
             margin: 1.2rem auto;
@@ -177,7 +338,166 @@
             font-size: 0.9rem;
         }
 
-        /* PRICING GRID */
+        /* PORTFOLIO SECTION */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.6rem 1.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--dark-gold);
+            color: #FFF;
+            border-color: var(--dark-gold);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(155, 123, 71, 0.18);
+            border-color: var(--gold);
+        }
+
+        .portfolio-img-wrapper {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .portfolio-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-card:hover .portfolio-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 18, 0.45);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .btn-view-lightbox {
+            background: var(--gold);
+            color: #FFF;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-view-lightbox:hover {
+            transform: scale(1.15);
+            background: var(--dark-gold);
+        }
+
+        .portfolio-content {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .portfolio-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--dark-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.35rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-dark);
+        }
+
+        .portfolio-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn-experience {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem 0;
+            background: var(--light-gold);
+            color: var(--dark-gold);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid var(--soft-gold);
+            transition: var(--transition);
+        }
+
+        .btn-experience:hover {
+            background: var(--dark-gold);
+            color: #FFF;
+            border-color: var(--dark-gold);
+        }
+
+        /* PRICING & SUBSCRIPTION GRID */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -325,6 +645,7 @@
             border-radius: 6px;
             transition: var(--transition);
             font-weight: 600;
+            cursor: pointer;
         }
 
         .btn-select:hover,
@@ -338,9 +659,9 @@
             border-color: #7E6336;
         }
 
-        /* TERMS & POLICY SECTION */
+        /* POLICY SECTION */
         .policy-wrapper {
-            margin-top: 6rem;
+            margin-top: 5rem;
             background: #FFFFFF;
             border: 1px solid var(--border-color);
             border-radius: 12px;
@@ -425,6 +746,312 @@
             top: 1px;
         }
 
+        /* CONTACT & BOOKING FORM SECTION */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 3.5rem;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .contact-info-panel {
+            background: linear-gradient(145deg, #181614, #26221D);
+            color: #FFF;
+            padding: 3.5rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .contact-info-panel::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact-info-header h3 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--soft-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-header p {
+            color: #BBB;
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-details label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--soft-gold);
+            display: block;
+            margin-bottom: 0.2rem;
+            text-transform: uppercase;
+        }
+
+        .info-details a, .info-details span {
+            color: #FFF;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: var(--transition);
+        }
+
+        .info-details a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--soft-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--gold);
+            color: #121212;
+            transform: translateY(-3px);
+        }
+
+        .booking-form-panel {
+            padding: 3.5rem 3rem;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: var(--text-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            background: #FAFAFA;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+            background: #FFF;
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%20C5A059' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2rem;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .btn-submit-booking {
+            grid-column: span 2;
+            margin-top: 1rem;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: #FFF;
+            border: none;
+            padding: 1.1rem;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(155, 123, 71, 0.3);
+            text-transform: uppercase;
+        }
+
+        .btn-submit-booking:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(155, 123, 71, 0.45);
+            background: linear-gradient(135deg, var(--dark-gold), var(--gold));
+        }
+
+        /* LIGHTBOX MODAL */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(12, 12, 12, 0.92);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 900px;
+            width: 100%;
+            background: #1A1A1A;
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            color: #FFF;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #FFF;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--gold);
+        }
+
+        .lightbox-img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+        }
+
+        .lightbox-info {
+            padding: 1.8rem;
+        }
+
+        .lightbox-info h3 {
+            font-size: 1.5rem;
+            color: var(--soft-gold);
+            margin-bottom: 0.4rem;
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #1C1917, #2A2521);
+            border: 1px solid var(--gold);
+            color: #FFF;
+            padding: 1.2rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 3000;
+            transform: translateY(150%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toast-notification.show {
+            transform: translateY(0);
+        }
+
+        .toast-icon {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
         /* FOOTER */
         footer {
             background: var(--accent-black);
@@ -432,6 +1059,7 @@
             text-align: center;
             padding: 4.5rem 1.5rem;
             margin-top: 6rem;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
         }
 
         .footer-logo {
@@ -501,18 +1129,75 @@
             letter-spacing: 0.5px;
         }
 
-        @media (max-width: 850px) {
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
             .policy-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
             }
-
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 3rem;
+            }
+            .hero-tagline {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(18, 18, 18, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 1.5rem;
+                clip-path: circle(0% at 100% 0%);
+                transition: clip-path 0.5s ease-in-out;
             }
 
-            .hero-tagline {
-                font-size: 1.8rem;
+            .nav-links.active {
+                clip-path: circle(140% at 100% 0%);
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .btn-submit-booking {
+                grid-column: span 1;
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+                letter-spacing: 3px;
+            }
+
+            .hero-subbrand {
+                font-size: 1rem;
+                letter-spacing: 3px;
+            }
+
+            .flow-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-flow {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -520,180 +1205,501 @@
 
 <body>
 
-    <header>
+    <!-- STICKY LUXURY NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="nav-logo-badge">SRS</span>
+                <span class="nav-logo-text">Seven Rings Stories</span>
+            </a>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#subscription">Subscription</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-cta-btn">Book Your Story</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <header class="hero" id="home">
         <span class="hero-badge">Luxury Cinematography & Photography</span>
         <h1 class="brand-title hero-title">SRS</h1>
-        <h2 class="brand-title"
-            style="font-size: 1.2rem; letter-spacing: 5px; color: var(--soft-gold); margin-bottom: 1rem;">SEVEN RINGS
-            STORIES</h2>
+        <div class="brand-title hero-subbrand">SEVEN RINGS STORIES</div>
         <p class="script-font hero-tagline">Capturing emotions. Creating cinematic stories.</p>
         <p class="hero-subtext">Every glance, every tear, and every unscripted laugh—immortalized with bespoke cinematic
-            brilliance for your special days.</p>
-        <a href="#collections" class="btn-gold">Explore Collections</a>
+            brilliance for your most cherished moments.</p>
+
+        <!-- PAGE FLOW BUTTONS -->
+        <div class="flow-actions">
+            <a href="#portfolio" class="btn-flow btn-flow-outline">
+                <i class="fa-solid fa-camera-retro"></i> View Portfolio
+            </a>
+            <a href="#subscription" class="btn-flow btn-flow-outline">
+                <i class="fa-solid fa-gem"></i> Explore Packages
+            </a>
+            <a href="#contact" class="btn-flow btn-flow-primary">
+                <i class="fa-solid fa-calendar-check"></i> Book Your Story
+            </a>
+        </div>
     </header>
 
-    <main class="container" id="collections">
+    <main>
 
-        <div class="section-header">
-            <h2 class="heading">Wedding Collections</h2>
-            <span class="script-font subheading">Photography & Cinematography Pricing</span>
-            <div class="gold-divider"></div>
-        </div>
+        <!-- PORTFOLIO SECTION -->
+        <section class="container" id="portfolio">
+            <div class="section-header">
+                <h2 class="heading">Our Portfolio</h2>
+                <span class="script-font subheading">Bespoke Cinematic Stories & Experiences</span>
+                <div class="gold-divider"></div>
+            </div>
 
-        <div class="pricing-grid">
+            <!-- PORTFOLIO CATEGORY FILTERS -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Stories</button>
+                <button class="filter-btn" data-filter="cinematic">Cinematic Films</button>
+                <button class="filter-btn" data-filter="prewedding">Pre-Wedding</button>
+                <button class="filter-btn" data-filter="ceremonies">Ceremonies</button>
+                <button class="filter-btn" data-filter="royal">Royal Weddings</button>
+            </div>
 
-            <article class="price-card">
-                <div class="card-header">
-                    <p class="collection-no">Collection 01</p>
-                    <h3 class="package-name">Essential</h3>
-                    <div class="package-price">₹60,000</div>
-                    <p class="package-desc">Perfect for couples looking for beautiful wedding memories within a
-                        practical budget.</p>
-                </div>
+            <!-- PORTFOLIO GALLERY GRID -->
+            <div class="portfolio-grid">
 
-                <h4 class="card-section-title"><i class="fa-solid fa-users-viewfinder"></i> Coverage Team</h4>
-                <ul class="details-list">
-                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 1 (Ring Ceremony):</strong> 1 Candid &
-                        1 Traditional Photographer</li>
-                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 2 (Mehndi & Haldi):</strong> 1 Candid &
-                        1 Traditional Photographer</li>
-                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 3 (Wedding):</strong> 1 Candid, 1
-                        Traditional Photographer & 1 Traditional Videographer</li>
-                </ul>
+                <article class="portfolio-card" data-category="royal cinematic">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Royal Palace Wedding Story" />
+                        <div class="portfolio-overlay">
+                            <button class="btn-view-lightbox" onclick="openLightbox('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80', 'The Royal Palace Wedding', 'An grand celebration of eternal love at Udaipur Heritage Palace.')" aria-label="View Image">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Royal Wedding • Feature Film</span>
+                        <h3 class="portfolio-title">The Royal Palace Story</h3>
+                        <p class="portfolio-desc">A regal celebration captured with high-definition cinematic elegance, intimate candid frames, and timeless colors.</p>
+                        <a href="#contact" class="btn-experience" onclick="selectExperience('Royal Palace Wedding')">Book This Experience</a>
+                    </div>
+                </article>
 
-                <h4 class="card-section-title"><i class="fa-solid fa-box-open"></i> Deliverables</h4>
-                <ul class="details-list">
-                    <li><i class="fa-regular fa-image"></i> 1 Canvera Photobook (Size: 12x30 or 12x36) — 20 Sheets</li>
-                    <li><i class="fa-solid fa-wand-magic-sparkles"></i> Master Edited Photographs</li>
-                    <li><i class="fa-solid fa-video"></i> 1 Traditional Full-Length Wedding Video</li>
-                    <li><i class="fa-solid fa-film"></i> 1 Wedding Teaser</li>
-                    <li><i class="fa-solid fa-usb-drive"></i> 1 USB Pen Drive</li>
-                </ul>
+                <article class="portfolio-card" data-category="prewedding">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Sunset Beach Pre-Wedding" />
+                        <div class="portfolio-overlay">
+                            <button class="btn-view-lightbox" onclick="openLightbox('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80', 'Golden Hour Pre-Wedding Session', 'Romantic beachside pre-wedding portraits bathed in golden light.')" aria-label="View Image">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Pre-Wedding • Outdoor Session</span>
+                        <h3 class="portfolio-title">Sunset Golden Hour</h3>
+                        <p class="portfolio-desc">Sweeping golden-hour landscapes framing gentle glances and authentic togetherness before the big day.</p>
+                        <a href="#contact" class="btn-experience" onclick="selectExperience('Golden Hour Pre-Wedding')">Book This Experience</a>
+                    </div>
+                </article>
 
-                <div class="card-footer">
-                    <a href="#contact" class="btn-select">Reserve Package</a>
-                </div>
-            </article>
+                <article class="portfolio-card" data-category="ceremonies">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Haldi & Mehndi Festivities" />
+                        <div class="portfolio-overlay">
+                            <button class="btn-view-lightbox" onclick="openLightbox('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80', 'Vibrant Haldi & Sangeet Ceremonies', 'Laughter, vibrant marigolds, and spontaneous joyful moments.')" aria-label="View Image">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Ceremonies • Sangeet & Haldi</span>
+                        <h3 class="portfolio-title">Vibrant Festive Celebrations</h3>
+                        <p class="portfolio-desc">High-energy family dances, traditional rituals, and colorful candid moments documented in rich contrast.</p>
+                        <a href="#contact" class="btn-experience" onclick="selectExperience('Haldi & Sangeet Festivities')">Book This Experience</a>
+                    </div>
+                </article>
 
-            <article class="price-card featured">
-                <span class="popular-tag">Most Cherished</span>
-                <div class="card-header">
-                    <p class="collection-no">Collection 02</p>
-                    <h3 class="package-name">Signature</h3>
-                    <div class="package-price">₹85,000</div>
-                    <p class="package-desc">A balanced combination of candid photography and cinematic storytelling.</p>
-                </div>
+                <article class="portfolio-card" data-category="cinematic royal">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Heritage Fort Wedding" />
+                        <div class="portfolio-overlay">
+                            <button class="btn-view-lightbox" onclick="openLightbox('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80', 'Heritage Fort Wedding Story', 'A fairytale night with candlelit courtyards and majestic wedding vow moments.')" aria-label="View Image">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Cinematic Film • Heritage</span>
+                        <h3 class="portfolio-title">Heritage Fort Fairytale</h3>
+                        <p class="portfolio-desc">Dramatic lighting, royal architecture, and breathtaking slow-motion wedding video highlights.</p>
+                        <a href="#contact" class="btn-experience" onclick="selectExperience('Heritage Fort Wedding')">Book This Experience</a>
+                    </div>
+                </article>
 
-                <h4 class="card-section-title"><i class="fa-solid fa-users-viewfinder"></i> Coverage Team</h4>
-                <ul class="details-list">
-                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 1 (Ring Ceremony):</strong> 1 Candid, 1
-                        Traditional Photographer & 1 Cinematographer</li>
-                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 2 (Mehndi & Haldi):</strong> 1 Candid,
-                        1 Traditional Photographer & 1 Cinematographer</li>
-                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 3 (Wedding):</strong> 1 Candid, 1
-                        Traditional Photographer, 1 Cinematographer & 1 Traditional Videographer</li>
-                </ul>
+                <article class="portfolio-card" data-category="prewedding cinematic">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=80" alt="Bespoke Couple Concept Film" />
+                        <div class="portfolio-overlay">
+                            <button class="btn-view-lightbox" onclick="openLightbox('https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1200&q=80', 'Bespoke Couple Concept Film', 'An intimate visual poem shot across picturesque scenic vistas.')" aria-label="View Image">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Concept Film • Pre-Wedding</span>
+                        <h3 class="portfolio-title">The Journey Concept Film</h3>
+                        <p class="portfolio-desc">Bespoke narrative storytelling customized to reflect your personal love story journey.</p>
+                        <a href="#contact" class="btn-experience" onclick="selectExperience('Concept Couple Film')">Book This Experience</a>
+                    </div>
+                </article>
 
-                <h4 class="card-section-title"><i class="fa-solid fa-box-open"></i> Deliverables</h4>
-                <ul class="details-list">
-                    <li><i class="fa-regular fa-image"></i> 1 Canvera Photobook (Size: 12x30 or 12x36) — 25–30 Sheets</li>
-                    <li><i class="fa-solid fa-wand-magic-sparkles"></i> Master Edited Photographs</li>
-                    <li><i class="fa-solid fa-clapperboard"></i> 1 Cinematic Full-Length Wedding Film</li>
-                    <li><i class="fa-solid fa-film"></i> 1 Wedding Teaser</li>
-                    <li><i class="fa-solid fa-envelope-open-text"></i> 1 Invitation Teaser</li>
-                    <li><i class="fa-solid fa-usb-drive"></i> 1 USB Pen Drive</li>
-                </ul>
+                <article class="portfolio-card" data-category="ceremonies royal">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony & Engagement" />
+                        <div class="portfolio-overlay">
+                            <button class="btn-view-lightbox" onclick="openLightbox('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80', 'Ring Ceremony & Engagement', 'Exchanging vows and rings surrounded by loved ones under sparkling crystal chandeliers.')" aria-label="View Image">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Ring Ceremony • Engagement</span>
+                        <h3 class="portfolio-title">Intimate Engagement Gala</h3>
+                        <p class="portfolio-desc">Preserving ring exchange rituals, heartfelt speeches, and elegant evening celebrations.</p>
+                        <a href="#contact" class="btn-experience" onclick="selectExperience('Ring Ceremony & Engagement')">Book This Experience</a>
+                    </div>
+                </article>
 
-                <div class="card-footer">
-                    <a href="#contact" class="btn-select">Reserve Package</a>
-                </div>
-            </article>
+            </div>
+        </section>
 
-            <article class="price-card">
-                <div class="card-header">
-                    <p class="collection-no">Collection 03</p>
-                    <h3 class="package-name">Luxury Cinematic</h3>
-                    <div class="package-price">₹1,10,000</div>
-                    <p class="package-desc">Our complete wedding storytelling experience, documented like a feature
-                        film.</p>
-                </div>
+        <!-- SUBSCRIPTION & PACKAGES SECTION -->
+        <section class="container" id="subscription">
 
-                <h4 class="card-section-title"><i class="fa-solid fa-users-viewfinder"></i> Coverage Team</h4>
-                <ul class="details-list">
-                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 1 (Ring Ceremony):</strong> 1 Candid, 1
-                        Traditional Photographer & 1 Cinematographer</li>
-                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 2 (Mehndi & Haldi):</strong> 1 Candid,
-                        1 Traditional Photographer & 1 Cinematographer</li>
-                    <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 3 (Wedding):</strong> 1 Candid, 1
-                        Traditional Photographer, 1 Cinematographer & 1 Traditional Videographer</li>
-                </ul>
+            <div class="section-header">
+                <h2 class="heading">Wedding Collections</h2>
+                <span class="script-font subheading">Photography & Cinematography Pricing</span>
+                <div class="gold-divider"></div>
+            </div>
 
-                <h4 class="card-section-title"><i class="fa-solid fa-box-open"></i> Deliverables</h4>
-                <ul class="details-list">
-                    <li><i class="fa-regular fa-image"></i> 1 Premium Canvera Photobook (Size: 12x30 or 12x36) — 35 Sheets</li>
-                    <li><i class="fa-solid fa-wand-magic-sparkles"></i> Master Edited Photographs</li>
-                    <li><i class="fa-solid fa-clapperboard"></i> 1 Premium Cinematic Full-Length Film</li>
-                    <li><i class="fa-solid fa-film"></i> 1 Wedding Teaser & 1 Invitation Teaser</li>
-                    <li><i class="fa-solid fa-heart"></i> 1 Couple Cinematic Highlight Film</li>
-                    <li><i class="fa-solid fa-palette"></i> Premium Color Grading & Cinematic Editing</li>
-                    <li><i class="fa-solid fa-box"></i> 1 Premium Gift Box Pen Drive</li>
-                </ul>
+            <div class="pricing-grid">
 
-                <div class="card-footer">
-                    <a href="#contact" class="btn-select">Reserve Package</a>
-                </div>
-            </article>
+                <!-- COLLECTION 01 -->
+                <article class="price-card">
+                    <div class="card-header">
+                        <p class="collection-no">Collection 01</p>
+                        <h3 class="package-name">Essential</h3>
+                        <div class="package-price">₹60,000</div>
+                        <p class="package-desc">Perfect for couples looking for beautiful wedding memories within a
+                            practical budget.</p>
+                    </div>
 
-        </div>
-
-        <div class="policy-wrapper" id="contact">
-            <div class="policy-grid">
-
-                <div>
-                    <h3
-                        style="font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
-                        Payment Terms</h3>
-                    <p class="script-font" style="font-size: 1.8rem; margin-bottom: 2rem;">Seamless & Transparent</p>
-
-                    <ul class="timeline-list">
-                        <li class="timeline-item">
-                            <span class="timeline-dot"></span>
-                            <h4 class="timeline-title">Booking Amount — 30%</h4>
-                            <p class="timeline-desc">At the time of reservation to secure dates.</p>
-                        </li>
-                        <li class="timeline-item">
-                            <span class="timeline-dot"></span>
-                            <h4 class="timeline-title">Second Payment — 40%</h4>
-                            <p class="timeline-desc">Payable prior to the wedding day ceremonies.</p>
-                        </li>
-                        <li class="timeline-item">
-                            <span class="timeline-dot"></span>
-                            <h4 class="timeline-title">Final Payment — 30%</h4>
-                            <p class="timeline-desc">Upon completion of event coverage.</p>
-                        </li>
+                    <h4 class="card-section-title"><i class="fa-solid fa-users-viewfinder"></i> Coverage Team</h4>
+                    <ul class="details-list">
+                        <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 1 (Ring Ceremony):</strong> 1 Candid &amp;
+                            1 Traditional Photographer</li>
+                        <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 2 (Mehndi &amp; Haldi):</strong> 1 Candid &amp;
+                            1 Traditional Photographer</li>
+                        <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 3 (Wedding):</strong> 1 Candid, 1
+                            Traditional Photographer &amp; 1 Traditional Videographer</li>
                     </ul>
+
+                    <h4 class="card-section-title"><i class="fa-solid fa-box-open"></i> Deliverables</h4>
+                    <ul class="details-list">
+                        <li><i class="fa-regular fa-image"></i> 1 Canvera Photobook (Size: 12x30 or 12x36) — 20 Sheets</li>
+                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> Master Edited Photographs</li>
+                        <li><i class="fa-solid fa-video"></i> 1 Traditional Full-Length Wedding Video</li>
+                        <li><i class="fa-solid fa-film"></i> 1 Wedding Teaser</li>
+                        <li><i class="fa-solid fa-usb-drive"></i> 1 USB Pen Drive</li>
+                    </ul>
+
+                    <div class="card-footer">
+                        <button type="button" class="btn-select" onclick="selectPackage('Collection 01: Essential', '₹60,000')">Choose Package</button>
+                    </div>
+                </article>
+
+                <!-- COLLECTION 02 -->
+                <article class="price-card featured">
+                    <span class="popular-tag">Most Cherished</span>
+                    <div class="card-header">
+                        <p class="collection-no">Collection 02</p>
+                        <h3 class="package-name">Signature</h3>
+                        <div class="package-price">₹85,000</div>
+                        <p class="package-desc">A balanced combination of candid photography and cinematic storytelling.</p>
+                    </div>
+
+                    <h4 class="card-section-title"><i class="fa-solid fa-users-viewfinder"></i> Coverage Team</h4>
+                    <ul class="details-list">
+                        <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 1 (Ring Ceremony):</strong> 1 Candid, 1
+                            Traditional Photographer &amp; 1 Cinematographer</li>
+                        <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 2 (Mehndi &amp; Haldi):</strong> 1 Candid,
+                            1 Traditional Photographer &amp; 1 Cinematographer</li>
+                        <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 3 (Wedding):</strong> 1 Candid, 1
+                            Traditional Photographer, 1 Cinematographer &amp; 1 Traditional Videographer</li>
+                    </ul>
+
+                    <h4 class="card-section-title"><i class="fa-solid fa-box-open"></i> Deliverables</h4>
+                    <ul class="details-list">
+                        <li><i class="fa-regular fa-image"></i> 1 Canvera Photobook (Size: 12x30 or 12x36) — 25–30 Sheets</li>
+                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> Master Edited Photographs</li>
+                        <li><i class="fa-solid fa-clapperboard"></i> 1 Cinematic Full-Length Wedding Film</li>
+                        <li><i class="fa-solid fa-film"></i> 1 Wedding Teaser</li>
+                        <li><i class="fa-solid fa-envelope-open-text"></i> 1 Invitation Teaser</li>
+                        <li><i class="fa-solid fa-usb-drive"></i> 1 USB Pen Drive</li>
+                    </ul>
+
+                    <div class="card-footer">
+                        <button type="button" class="btn-select" onclick="selectPackage('Collection 02: Signature', '₹85,000')">Choose Package</button>
+                    </div>
+                </article>
+
+                <!-- COLLECTION 03 -->
+                <article class="price-card">
+                    <div class="card-header">
+                        <p class="collection-no">Collection 03</p>
+                        <h3 class="package-name">Luxury Cinematic</h3>
+                        <div class="package-price">₹1,10,000</div>
+                        <p class="package-desc">Our complete wedding storytelling experience, documented like a feature
+                            film.</p>
+                    </div>
+
+                    <h4 class="card-section-title"><i class="fa-solid fa-users-viewfinder"></i> Coverage Team</h4>
+                    <ul class="details-list">
+                        <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 1 (Ring Ceremony):</strong> 1 Candid, 1
+                            Traditional Photographer &amp; 1 Cinematographer</li>
+                        <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 2 (Mehndi &amp; Haldi):</strong> 1 Candid,
+                            1 Traditional Photographer &amp; 1 Cinematographer</li>
+                        <li><i class="fa-regular fa-calendar-check"></i> <strong>Day 3 (Wedding):</strong> 1 Candid, 1
+                            Traditional Photographer, 1 Cinematographer &amp; 1 Traditional Videographer</li>
+                    </ul>
+
+                    <h4 class="card-section-title"><i class="fa-solid fa-box-open"></i> Deliverables</h4>
+                    <ul class="details-list">
+                        <li><i class="fa-regular fa-image"></i> 1 Premium Canvera Photobook (Size: 12x30 or 12x36) — 35 Sheets</li>
+                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> Master Edited Photographs</li>
+                        <li><i class="fa-solid fa-clapperboard"></i> 1 Premium Cinematic Full-Length Film</li>
+                        <li><i class="fa-solid fa-film"></i> 1 Wedding Teaser &amp; 1 Invitation Teaser</li>
+                        <li><i class="fa-solid fa-heart"></i> 1 Couple Cinematic Highlight Film</li>
+                        <li><i class="fa-solid fa-palette"></i> Premium Color Grading &amp; Cinematic Editing</li>
+                        <li><i class="fa-solid fa-box"></i> 1 Premium Gift Box Pen Drive</li>
+                    </ul>
+
+                    <div class="card-footer">
+                        <button type="button" class="btn-select" onclick="selectPackage('Collection 03: Luxury Cinematic', '₹1,10,000')">Choose Package</button>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- PAYMENT TERMS & IMPORTANT NOTES -->
+            <div class="policy-wrapper">
+                <div class="policy-grid">
+
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
+                            Payment Terms</h3>
+                        <p class="script-font" style="font-size: 1.8rem; margin-bottom: 2rem;">Seamless &amp; Transparent</p>
+
+                        <ul class="timeline-list">
+                            <li class="timeline-item">
+                                <span class="timeline-dot"></span>
+                                <h4 class="timeline-title">Booking Amount — 30%</h4>
+                                <p class="timeline-desc">At the time of reservation to secure dates.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-dot"></span>
+                                <h4 class="timeline-title">Second Payment — 40%</h4>
+                                <p class="timeline-desc">Payable prior to the wedding day ceremonies.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-dot"></span>
+                                <h4 class="timeline-title">Final Payment — 30%</h4>
+                                <p class="timeline-desc">Upon completion of event coverage.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-box">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
+                            Important Notes</h3>
+                        <p class="script-font" style="font-size: 1.8rem; margin-bottom: 2rem;">Good Things to Know</p>
+
+                        <ul>
+                            <li>Additional coverage or extra crew services will be charged separately upon request.</li>
+                            <li>Travel, accommodation, and other logistical outstation expenses are not included in the packages.</li>
+                            <li>Photobook layout design will be shared digitally for your approval before printing.</li>
+                            <li>Final delivery schedules and timelines will be mutually discussed post-event.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CONTACT & BOOK YOUR STORY SECTION -->
+        <section class="container" id="contact">
+
+            <div class="section-header">
+                <h2 class="heading">Book Your Story</h2>
+                <span class="script-font subheading">Let's Create Cinematic Memories Together</span>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="contact-container">
+
+                <!-- DIRECT CONTACT INFO PANEL -->
+                <div class="contact-info-panel">
+                    <div>
+                        <div class="contact-info-header">
+                            <h3>Get In Touch</h3>
+                            <p>We would love to hear about your special day and discuss your custom story package.</p>
+                        </div>
+
+                        <div class="info-items-list">
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div class="info-details">
+                                    <label>Instagram Handle</label>
+                                    <a href="https://instagram.com/studio_srs1" target="_blank" rel="noopener">@studio_srs1</a>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="info-details">
+                                    <label>Contact Phone</label>
+                                    <a href="tel:+917751943369">+91 7751943369</a>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="info-details">
+                                    <label>Direct Email</label>
+                                    <a href="mailto:sudiptasahu0200@gmail.com">sudiptasahu0200@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="info-details">
+                                    <label>Studio Base</label>
+                                    <span>Available Destination &amp; Nationwide</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://instagram.com/studio_srs1" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="tel:+917751943369" class="social-btn" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+                        <a href="mailto:sudiptasahu0200@gmail.com" class="social-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
                 </div>
 
-                <div class="terms-box">
-                    <h3
-                        style="font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
-                        Important Notes</h3>
-                    <p class="script-font" style="font-size: 1.8rem; margin-bottom: 2rem;">Good Things to Know</p>
+                <!-- INTERACTIVE BOOKING FORM PANEL -->
+                <div class="booking-form-panel">
+                    <h3 class="form-title">Reserve Your Dates</h3>
+                    <p class="form-sub">Fill out the form below to initiate your booking inquiry.</p>
 
-                    <ul>
-                        <li>Additional coverage or extra crew services will be charged separately upon request.</li>
-                        <li>Travel, accommodation, and other logistical outstation expenses are not included in the
-                            packages.</li>
-                        <li>Photobook layout design will be shared digitally for your approval before printing.</li>
-                        <li>Final delivery schedules and timelines will be mutually discussed post-event.</li>
-                    </ul>
+                    <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="fullName">Your Full Name *</label>
+                                <input type="text" id="fullName" class="form-control" placeholder="e.g. Ananya &amp; Rohan" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+91 98765 43210" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-control" placeholder="name@domain.com" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eventDate">Tentative Event Date</label>
+                                <input type="date" id="eventDate" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experienceType">Experience / Service</label>
+                                <select id="experienceType" class="form-control">
+                                    <option value="Full Wedding Experience">Full Wedding Experience</option>
+                                    <option value="Royal Palace Wedding">Royal Palace Wedding</option>
+                                    <option value="Golden Hour Pre-Wedding">Golden Hour Pre-Wedding</option>
+                                    <option value="Haldi &amp; Sangeet Festivities">Haldi &amp; Sangeet Festivities</option>
+                                    <option value="Heritage Fort Wedding">Heritage Fort Wedding</option>
+                                    <option value="Concept Couple Film">Concept Couple Film</option>
+                                    <option value="Ring Ceremony &amp; Engagement">Ring Ceremony &amp; Engagement</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="packageSelect">Preferred Package</label>
+                                <select id="packageSelect" class="form-control">
+                                    <option value="Collection 01: Essential (₹60,000)">Collection 01: Essential (₹60,000)</option>
+                                    <option value="Collection 02: Signature (₹85,000)" selected>Collection 02: Signature (₹85,000)</option>
+                                    <option value="Collection 03: Luxury Cinematic (₹1,10,000)">Collection 03: Luxury Cinematic (₹1,10,000)</option>
+                                    <option value="Custom Story Package">Custom Story Package</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="message">Event Venue &amp; Special Notes</label>
+                                <textarea id="message" class="form-control" placeholder="Tell us about your wedding location, guest count, or any custom wishes..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-submit-booking">Book Your Story</button>
+
+                        </div>
+                    </form>
                 </div>
 
             </div>
-        </div>
+
+        </section>
 
     </main>
 
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img src="" id="lightboxImg" class="lightbox-img" alt="Gallery Preview" />
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle">Story Preview</h3>
+                <p id="lightboxDesc" style="color: #BBB; font-size: 0.9rem;"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-notification" id="toastNotification">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <div>
+            <h4 style="font-size: 0.95rem; font-family: 'Cinzel', serif;" id="toastTitle">Story Inquiry Submitted!</h4>
+            <p style="font-size: 0.85rem; color: #CCC;" id="toastMsg">Thank you! Team SRS will reach out to you shortly.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
     <footer>
         <h2 class="brand-title footer-logo">SRS</h2>
         <div class="footer-sub">Seven Rings Stories</div>
@@ -702,7 +1708,7 @@
 
         <div class="contact-section">
             <div class="contact-links">
-                <a href="https://instagram.com/studio_srs1" target="_blank">
+                <a href="https://instagram.com/studio_srs1" target="_blank" rel="noopener">
                     <i class="fa-brands fa-instagram"></i>
                     @studio_srs1
                 </a>
@@ -717,11 +1723,147 @@
                 </a>
             </div>
             <div class="copyright">
-                © 2025 Seven Rings Stories. All Rights Reserved.
+                © 2025-2026 Seven Rings Stories. All Rights Reserved.
             </div>
         </div>
     </footer>
 
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // MOBILE TOGGLE NAV
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // CLOSE MOBILE MENU ON LINK CLICK
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // SCROLLSPY ACTIVE LINK HIGHLIGHT
+        const sections = document.querySelectorAll('header, section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (current && item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // PORTFOLIO FILTER TABS
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                portfolioCards.forEach(card => {
+                    const categories = card.getAttribute('data-category');
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // PRE-FILL FORM ON 'Book This Experience' CLICK
+        function selectExperience(expName) {
+            const expSelect = document.getElementById('experienceType');
+            if (expSelect) {
+                for (let i = 0; i < expSelect.options.length; i++) {
+                    if (expSelect.options[i].value.includes(expName) || expName.includes(expSelect.options[i].value)) {
+                        expSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            showToast('Experience Pre-Selected!', `Set experience form to: ${expName}`);
+        }
+
+        // PRE-FILL FORM ON 'Choose Package' CLICK
+        function selectPackage(packageName, price) {
+            const pkgSelect = document.getElementById('packageSelect');
+            if (pkgSelect) {
+                for (let i = 0; i < pkgSelect.options.length; i++) {
+                    if (pkgSelect.options[i].value.includes(packageName)) {
+                        pkgSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            // Smooth scroll to contact
+            const contactElem = document.getElementById('contact');
+            if (contactElem) {
+                contactElem.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            showToast('Package Selected!', `${packageName} (${price}) selected in booking form.`);
+        }
+
+        // LIGHTBOX FUNCTIONS
+        function openLightbox(imgSrc, title, desc) {
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('lightboxTitle').textContent = title;
+            document.getElementById('lightboxDesc').textContent = desc;
+            document.getElementById('lightboxModal').classList.add('active');
+        }
+
+        function closeLightbox(event) {
+            if (!event || event.target.id === 'lightboxModal' || event.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightboxModal').classList.remove('active');
+            }
+        }
+
+        // FORM SUBMISSION HANDLER
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('fullName').value;
+            const pkg = document.getElementById('packageSelect').value;
+
+            showToast('Story Request Received!', `Thank you ${name}! We've reserved your inquiry for ${pkg}.`);
+
+            document.getElementById('bookingForm').reset();
+        }
+
+        // TOAST NOTIFICATION UTILITY
+        function showToast(title, msg) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastMsg').textContent = msg;
+
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4500);
+        }
+    </script>
 </body>
 
 </html>
